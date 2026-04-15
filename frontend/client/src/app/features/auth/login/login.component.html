@@ -1,0 +1,91 @@
+<div class="auth-page">
+  <div class="auth-container">
+    <!-- Decorative orb -->
+    <div class="auth-orb"></div>
+
+    <div class="auth-card animate-fade-in-scale">
+      <!-- Header -->
+      <div class="auth-header">
+        <div class="auth-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <h1 class="auth-title">Добро пожаловать</h1>
+        <p class="auth-subtitle">Войдите в свой аккаунт</p>
+      </div>
+
+      <!-- Error -->
+      @if (error()) {
+        <div class="auth-error animate-fade-in">
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+            <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          {{ error() }}
+        </div>
+      }
+
+      <!-- Form -->
+      <form (ngSubmit)="login()" class="auth-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" width="18" height="18">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              [(ngModel)]="email"
+              name="email"
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" width="18" height="18">
+              <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2" />
+              <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <input
+              id="password"
+              type="password"
+              placeholder="••••••••"
+              [(ngModel)]="password"
+              name="password"
+              autocomplete="current-password"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" [disabled]="isLoading()">
+          @if (isLoading()) {
+            <svg class="spinner" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="32" stroke-linecap="round" />
+            </svg>
+          }
+          {{ isLoading() ? 'Вход...' : 'Войти' }}
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <div class="auth-footer">
+        <span>Нет аккаунта?</span>
+        <a routerLink="/register">Создать аккаунт</a>
+      </div>
+    </div>
+  </div>
+</div>
