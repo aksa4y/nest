@@ -2,9 +2,7 @@
 
 **Production-ready NestJS boilerplate with authentication, database, and essential features.**
 
-<p align="center">
-  <img src="documentation/prime-nestjs.jpg" width="600" alt="prime-nestjs">
-</p>
+
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
