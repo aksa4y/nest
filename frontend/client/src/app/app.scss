@@ -67,6 +67,32 @@
   gap: var(--space-md);
 }
 
+.navbar-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-family: var(--font-family);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  
+  &:hover {
+    background: var(--bg-card);
+    color: var(--text-primary);
+  }
+  
+  &.active {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--accent);
+  }
+}
+
 .navbar-status {
   display: flex;
   align-items: center;
