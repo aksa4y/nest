@@ -1,6 +1,6 @@
 # Prime NestJS
 
-**Production-ready NestJS boilerplate with authentication, database, and essential features.**
+**Готовый к продакшену шаблон NestJS с аутентификацией, базой данных и основными функциями.**
 
 
 
@@ -10,31 +10,31 @@
   <img src="https://img.shields.io/node/v/prime-nestjs.svg" alt="Node version">
 </p>
 
-A robust NestJS starter kit with JWT authentication, PostgreSQL, TypeORM, Swagger docs, scheduled tasks, and Docker support out of the box.
+Мощный стартовый набор на NestJS с JWT-аутентификацией, PostgreSQL, TypeORM, Swagger-документацией, планировщиком задач и поддержкой Docker из коробки.
 
-## Features
+## Возможности
 
-- **🔐 JWT Authentication** — Bearer token auth with refresh tokens
-- **🗄️ PostgreSQL + TypeORM** — Configurable connection pooling, SSL support, migrations
-- **📝 Swagger API Docs** — Auto-generated at `/api` (dev only)
-- **🐳 Docker Compose** — One command to run everything
-- **⏰ Scheduled Tasks** — Cron jobs, intervals, and timeouts with @nestjs/schedule
-- **🛡️ Authorization** — Role-based access control with CASL
-- **🧪 Testing** — Jest configured for unit and e2e tests
-- **📏 Code Quality** — ESLint, Prettier, Husky, commitlint
-- **🔒 Security** — Helmet, CORS, input validation with class-validator
-- **📊 Health Checks** — Built-in endpoints for monitoring
-- **🪵 Custom Logger** — Transient scoped logger service
+- **🔐 JWT Аутентификация** — Bearer-токены с токенами обновления
+- **🗄️ PostgreSQL + TypeORM** — Настраиваемый пул соединений, поддержка SSL, миграции
+- **📝 Swagger API Документация** — Автогенерация на `/api` (только для разработки)
+- **🐳 Docker Compose** — Запуск всего проекта одной командой
+- **⏰ Планировщик задач** — Cron-задачи, интервалы и таймауты с @nestjs/schedule
+- **🛡️ Авторизация** — Ролевая модель доступа с CASL
+- **🧪 Тестирование** — Jest настроен для unit и e2e тестов
+- **📏 Качество кода** — ESLint, Prettier, Husky, commitlint
+- **🔒 Безопасность** — Helmet, CORS, валидация входных данных с class-validator
+- **📊 Health Checks** — Встроенные эндпоинты для мониторинга
+- **🪵 Кастомный логгер** — Сервис логгирования с transient scope
 
-## Quick Start
+## Быстрый старт
 
-### Prerequisites
+### Требования
 
 - Node.js >= 20.0.0
 - npm >= 10.0.0
-- PostgreSQL (or use Docker)
+- PostgreSQL (или используйте Docker)
 
-### Setup
+### Установка
 
 ```bash
 git clone https://github.com/josephgoksu/prime-nestjs.git
@@ -43,13 +43,13 @@ npm install
 cp .env.example .env
 ```
 
-#### Configure Environment Variables
+#### Настройка переменных окружения
 
-Edit `.env` file with your settings:
+Отредактируйте файл `.env` под ваши настройки:
 
 ```env
-# Database
-POSTGRES_HOST=localhost          # Use "database" for Docker
+# База данных
+POSTGRES_HOST=localhost          # Используйте "database" для Docker
 POSTGRES_PORT=5432
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=mysecretpassword
@@ -58,211 +58,211 @@ POSTGRES_SSL=false
 POSTGRES_SSL_REJECT_UNAUTHORIZED=true
 POSTGRES_POOL_SIZE=10
 
-# Application
+# Приложение
 PORT=3000
 NODE_ENV=development
 ALLOWED_ORIGINS=http://localhost:3000
 
-# JWT Authentication
+# JWT Аутентификация
 JWT_SECRET=your-super-secret-key-here
 JWT_ACCESS_TOKEN_EXPIRES_IN=1h
 JWT_REFRESH_TOKEN_EXPIRES_IN=7d
 ```
 
-#### Run with Docker (Recommended)
+#### Запуск через Docker (Рекомендуется)
 
 ```bash
 npm run docker:build
 npm run docker:up
 ```
 
-#### Run Locally
+#### Локальный запуск
 
 ```bash
-# Make sure PostgreSQL is running
+# Убедитесь, что PostgreSQL запущен
 npm run start:dev
 ```
 
-API available at `http://localhost:3000`  
-Swagger docs at `http://localhost:3000/api`
+API доступен по адресу `http://localhost:3000`  
+Swagger документация по адресу `http://localhost:3000/api`
 
-## Development
+## Разработка
 
-### Available Scripts
-
-```bash
-npm run start:dev      # Development with hot-reload
-npm run start:debug    # Debug mode with --inspect
-npm run build          # Build for production
-npm run start:prod     # Run production build
-npm run test           # Run unit tests
-npm run test:watch     # Watch mode for tests
-npm run test:cov       # Generate coverage report
-npm run test:e2e       # Run e2e tests
-npm run lint           # Lint and fix code
-npm run format         # Format code with Prettier
-```
-
-### Database Commands
+### Доступные скрипты
 
 ```bash
-npm run schema:sync              # Sync database schema (dev only)
-npm run migration:generate       # Generate migration from entity changes
-npm run migration:run            # Apply pending migrations
-npm run migration:revert         # Revert last migration
-npm run drop:database            # Drop all tables
+npm run start:dev      # Разработка с hot-reload
+npm run start:debug    # Режим отладки с --inspect
+npm run build          # Сборка для продакшена
+npm run start:prod     # Запуск продакшен сборки
+npm run test           # Запуск unit тестов
+npm run test:watch     # Тесты в режиме наблюдения
+npm run test:cov       # Генерация отчёта о покрытии
+npm run test:e2e       # Запуск e2e тестов
+npm run lint           # Линтинг и исправление кода
+npm run format         # Форматирование кода с Prettier
 ```
 
-### Docker Commands
+### Команды базы данных
 
 ```bash
-npm run docker:build   # Build Docker containers
-npm run docker:up      # Start all services
-npm run docker:down    # Stop all services
+npm run schema:sync              # Синхронизация схемы БД (только для разработки)
+npm run migration:generate       # Генерация миграции из изменений в сущностях
+npm run migration:run            # Применение ожидающих миграций
+npm run migration:revert         # Откат последней миграции
+npm run drop:database            # Удаление всех таблиц
 ```
 
-### Security Audit
+### Docker команды
 
 ```bash
-npm run security:audit   # Run npm audit
+npm run docker:build   # Сборка Docker контейнеров
+npm run docker:up      # Запуск всех сервисов
+npm run docker:down    # Остановка всех сервисов
 ```
 
-## Project Structure
+### Аудит безопасности
+
+```bash
+npm run security:audit   # Запуск npm audit
+```
+
+## Структура проекта
 
 ```
 src/
-├── auth/                 # JWT authentication module
+├── auth/                 # Модуль JWT аутентификации
 │   ├── dto/             # Login DTO
-│   ├── strategy/        # JWT strategy and guards
+│   ├── strategy/        # JWT стратегия и гварды
 │   ├── auth.controller.ts
 │   └── auth.service.ts
-├── config/              # Configuration management
-│   ├── database.ts      # TypeORM DataSource config
-│   └── index.ts         # App configuration loader
-├── logger/              # Custom logger service
+├── config/              # Управление конфигурацией
+│   ├── database.ts      # Конфигурация TypeORM DataSource
+│   └── index.ts         # Загрузчик конфигурации приложения
+├── logger/              # Кастомный сервис логгирования
 │   └── logger.service.ts
-├── tasks/               # Scheduled tasks example
+├── tasks/               # Пример запланированных задач
 │   ├── dto/            # Create/Update task DTOs
 │   ├── entities/       # Task entity
 │   ├── tasks.controller.ts
 │   └── tasks.service.ts
-├── users/               # User management module
+├── users/               # Модуль управления пользователями
 │   ├── dto/            # User DTOs
 │   ├── entities/       # User entity
 │   ├── enums/          # Role enum (standard, premium)
 │   └── users.service.ts
-├── app.module.ts        # Root module
-├── app.controller.ts    # Health check endpoint
-└── main.ts              # Application entry point
+├── app.module.ts        # Корневой модуль
+├── app.controller.ts    # Эндпоинт health check
+└── main.ts              # Точка входа приложения
 ```
 
-## API Endpoints
+## API Эндпоинты
 
-### Authentication
+### Аутентификация
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/auth/login` | Login with email/password |
-| POST | `/auth/register` | Register new user |
+| Метод | Эндпоинт | Описание |
+|-------|----------|----------|
+| POST | `/auth/login` | Вход по email/паролю |
+| POST | `/auth/register` | Регистрация нового пользователя |
 
-### Users
+### Пользователи
 
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| GET | `/users` | Get all users | ✅ |
-| GET | `/users/:id` | Get user by ID | ✅ |
-| PUT | `/users/:id` | Update user | ✅ |
-| DELETE | `/users/:id` | Delete user | ✅ |
+| Метод | Эндпоинт | Описание | Auth |
+|-------|----------|----------|------|
+| GET | `/users` | Получить всех пользователей | ✅ |
+| GET | `/users/:id` | Получить пользователя по ID | ✅ |
+| PUT | `/users/:id` | Обновить пользователя | ✅ |
+| DELETE | `/users/:id` | Удалить пользователя | ✅ |
 
-### Tasks
+### Задачи
 
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| POST | `/tasks` | Create task | ✅ |
-| GET | `/tasks` | Get all tasks | ✅ |
-| GET | `/tasks/:id` | Get task by ID | ✅ |
-| PUT | `/tasks/:id` | Update task | ✅ |
-| DELETE | `/tasks/:id` | Delete task | ✅ |
+| Метод | Эндпоинт | Описание | Auth |
+|-------|----------|----------|------|
+| POST | `/tasks` | Создать задачу | ✅ |
+| GET | `/tasks` | Получить все задачи | ✅ |
+| GET | `/tasks/:id` | Получить задачу по ID | ✅ |
+| PUT | `/tasks/:id` | Обновить задачу | ✅ |
+| DELETE | `/tasks/:id` | Удалить задачу | ✅ |
 
-### System
+### Системные
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/health-check` | Health check endpoint |
-| GET | `/api` | Swagger documentation |
+| Метод | Эндпоинт | Описание |
+|-------|----------|----------|
+| GET | `/health-check` | Эндпоинт проверки здоровья |
+| GET | `/api` | Swagger документация |
 
-## Architecture
+## Архитектура
 
-### Authentication Flow
+### Поток аутентификации
 
-See [detailed auth documentation](documentation/auth.md) for sequence diagrams.
+Смотрите [подробную документацию по аутентификации](documentation/auth.md) с диаграммами последовательности.
 
-1. Client sends login/register request to `AuthController`
-2. `AuthService` validates credentials and generates JWT token
-3. `UsersService` handles database operations
-4. Protected routes use `JwtAuthGuard` and `RolesGuard`
+1. Клиент отправляет запрос login/register в `AuthController`
+2. `AuthService` проверяет учётные данные и генерирует JWT токен
+3. `UsersService` обрабатывает операции с базой данных
+4. Защищённые маршруты используют `JwtAuthGuard` и `RolesGuard`
 
-### Configuration
+### Конфигурация
 
-See [config documentation](documentation/config.md) for details.
+Смотрите [документацию по конфигурации](documentation/config.md) для деталей.
 
-- Environment variables loaded via `@nestjs/config`
-- Type-safe configuration with validation
-- Database settings configurable via `.env`
+- Переменные окружения загружаются через `@nestjs/config`
+- Типобезопасная конфигурация с валидацией
+- Настройки базы данных конфигурируются через `.env`
 
-## Environment Variables
+## Переменные окружения
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `POSTGRES_HOST` | ✅ | - | Database host |
-| `POSTGRES_PORT` | ❌ | 5432 | Database port |
-| `POSTGRES_USER` | ✅ | - | Database username |
-| `POSTGRES_PASSWORD` | ✅ | - | Database password |
-| `POSTGRES_DB` | ✅ | - | Database name |
-| `POSTGRES_SSL` | ❌ | false | Enable SSL connection |
-| `POSTGRES_SSL_REJECT_UNAUTHORIZED` | ❌ | true | Reject unauthorized SSL certs |
-| `POSTGRES_POOL_SIZE` | ❌ | 10 | Connection pool size |
-| `PORT` | ❌ | 3000 | Application port |
-| `NODE_ENV` | ❌ | development | Environment |
-| `ALLOWED_ORIGINS` | ❌ | http://localhost:3000 | CORS origins (comma-separated) |
-| `JWT_SECRET` | ✅ | - | JWT signing secret |
-| `JWT_ACCESS_TOKEN_EXPIRES_IN` | ❌ | 1h | Access token expiry |
-| `JWT_REFRESH_TOKEN_EXPIRES_IN` | ❌ | 7d | Refresh token expiry |
+| Переменная | Обязательна | По умолчанию | Описание |
+|------------|-------------|--------------|----------|
+| `POSTGRES_HOST` | ✅ | - | Хост базы данных |
+| `POSTGRES_PORT` | ❌ | 5432 | Порт базы данных |
+| `POSTGRES_USER` | ✅ | - | Имя пользователя БД |
+| `POSTGRES_PASSWORD` | ✅ | - | Пароль БД |
+| `POSTGRES_DB` | ✅ | - | Имя базы данных |
+| `POSTGRES_SSL` | ❌ | false | Включить SSL соединение |
+| `POSTGRES_SSL_REJECT_UNAUTHORIZED` | ❌ | true | Отклонять неавторизованные SSL сертификаты |
+| `POSTGRES_POOL_SIZE` | ❌ | 10 | Размер пула соединений |
+| `PORT` | ❌ | 3000 | Порт приложения |
+| `NODE_ENV` | ❌ | development | Окружение |
+| `ALLOWED_ORIGINS` | ❌ | http://localhost:3000 | CORS origins (через запятую) |
+| `JWT_SECRET` | ✅ | - | Секрет подписи JWT |
+| `JWT_ACCESS_TOKEN_EXPIRES_IN` | ❌ | 1h | Время жизни access токена |
+| `JWT_REFRESH_TOKEN_EXPIRES_IN` | ❌ | 7d | Время жизни refresh токена |
 
-## Security Best Practices
+## Лучшие практики безопасности
 
-1. **Never commit `.env` file** — Add it to `.gitignore`
-2. **Use strong JWT secrets** — At least 32 random characters
-3. **Enable SSL in production** — Set `POSTGRES_SSL=true`
-4. **Restrict CORS origins** — Specify exact domains in `ALLOWED_ORIGINS`
-5. **Run security audits** — Use `npm run security:audit` regularly
+1. **Никогда не коммитьте файл `.env`** — Добавьте его в `.gitignore`
+2. **Используйте стойкие JWT секреты** — Минимум 32 случайных символа
+3. **Включайте SSL в продакшене** — Установите `POSTGRES_SSL=true`
+4. **Ограничивайте CORS origins** — Указывайте точные домены в `ALLOWED_ORIGINS`
+5. **Регулярно проводите аудит безопасности** — Используйте `npm run security:audit`
 
-## Contributing
+## Вклад в проект
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Форкните репозиторий
+2. Создайте ветку для вашей фичи (`git checkout -b feature/amazing-feature`)
+3. Закоммитьте изменения (`git commit -m 'feat: add amazing feature'`)
+4. Запушьте в ветку (`git push origin feature/amazing-feature`)
+5. Откройте Pull Request
 
-### Commit Convention
+### Соглашение о коммитах
 
-This project uses [Conventional Commits](https://www.conventionalcommits.org/):
+Этот проект использует [Conventional Commits](https://www.conventionalcommits.org/):
 
-- `feat:` New feature
-- `fix:` Bug fix
-- `docs:` Documentation changes
-- `style:` Code style changes (formatting)
-- `refactor:` Code refactoring
-- `test:` Adding tests
-- `chore:` Maintenance tasks
+- `feat:` Новая функциональность
+- `fix:` Исправление багов
+- `docs:` Изменения в документации
+- `style:` Изменения стиля кода (форматирование)
+- `refactor:` Рефакторинг кода
+- `test:` Добавление тестов
+- `chore:` Задачи по поддержке проекта
 
-## License
+## Лицензия
 
 [MIT](LICENSE)
 
 ---
 
-**Built with NestJS v11 • TypeScript • TypeORM • PostgreSQL**
+**Создано с использованием NestJS v11 • TypeScript • TypeORM • PostgreSQL**
 
-If this boilerplate saved you time, consider giving it a ⭐️
+Если этот шаблон сэкономил вам время, поставьте ему ⭐️
