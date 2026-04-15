@@ -1,0 +1,94 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <h1>Мой профиль</h1>
+
+    <div *ngIf="isLoading" class="loading">Загрузка...</div>
+    <div *ngIf="message" class="message success">{{ message }}</div>
+    <div *ngIf="error" class="message error">{{ error }}</div>
+
+    <form (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+      <div class="form-group">
+        <label for="avatar">Аватар (URL)</label>
+        <input
+          type="url"
+          id="avatar"
+          name="avatar"
+          [(ngModel)]="formData.avatar"
+          placeholder="https://example.com/avatar.jpg"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="formData.name"
+          required
+          placeholder="Ваше имя"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="formData.email"
+          required
+          placeholder="your@email.com"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Телефон</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          [(ngModel)]="formData.phone"
+          placeholder="+7 (999) 000-00-00"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Город</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          [(ngModel)]="formData.location"
+          placeholder="Москва"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="website">Веб-сайт</label>
+        <input
+          type="url"
+          id="website"
+          name="website"
+          [(ngModel)]="formData.website"
+          placeholder="https://mysite.com"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="bio">О себе</label>
+        <textarea
+          id="bio"
+          name="bio"
+          [(ngModel)]="formData.bio"
+          rows="4"
+          placeholder="Расскажите немного о себе..."
+        ></textarea>
+      </div>
+
+      <button type="submit" [disabled]="isSaving" class="btn-save">
+        {{ isSaving ? 'Сохранение...' : 'Сохранить' }}
+      </button>
+    </form>
+  </div>
+</div>
